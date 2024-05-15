@@ -1,6 +1,5 @@
 "use client";
 
-import { ITodo } from "@/interfaces/ITodo";
 import {
   Dialog,
   DialogClose,
@@ -13,23 +12,33 @@ import {
 } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import axios from "axios";
-import { useState } from "react";
-import { dateFormater } from "@/lib/utils";
-import { useToast } from "./ui/use-toast";
+import { Todo } from "@/app/types";
+import { UpsertForm } from "./upsert-form";
+
+import { todoSchema } from "@/app/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { useToast } from "./ui/use-toast";
+import { prisma } from "@/database";
+import { updateTodo } from "@/app/actions";
 
-export function EditForm({ name, _id, updatedAt }: any) {
-  const [newName, setNewName] = useState(name || undefined);
-
+export function EditForm({ item }: { item: Todo }) {
   const { toast } = useToast();
+  const router = useRouter();
 
-  const editTodo = async () => {
-    await axios.put(`/api/todos/${_id}`, { newName });
+  const { register, handleSubmit } = useForm({
+    resolver: zodResolver(todoSchema),
+  });
+
+  const handleUpdatedTodo = async (data: any) => {
+    await updateTodo(data, item.id);
 
     toast({
-      title: "todo has been updated",
+      title: "Todo has been updated",
     });
+
+    router.refresh();
   };
 
   return (
@@ -38,30 +47,29 @@ export function EditForm({ name, _id, updatedAt }: any) {
         <Button variant="default">Edit</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your Todo here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="">
+        <form onSubmit={handleSubmit(handleUpdatedTodo)} className="space-y-5">
+          <DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div>
             <Input
-              className="w-full"
-              onChange={(event) => setNewName(event.target.value)}
-              value={newName}
+              type="text"
+              placeholder="Add todo..."
+              {...register("title")}
+              defaultValue={item?.title}
             />
-            <span className="text-xs ml-1 text-gray-400">
-              Last update: {dateFormater(new Date(updatedAt))}
-            </span>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4"></div>
-        </div>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button onClick={editTodo}>Save changes</Button>
-          </DialogClose>
-        </DialogFooter>
+
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button type="submit">Save changes</Button>
+            </DialogClose>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );

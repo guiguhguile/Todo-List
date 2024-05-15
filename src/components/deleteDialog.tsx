@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import { Button } from "./ui/button";
 import {
@@ -11,15 +12,23 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { useToast } from "./ui/use-toast";
+import { Todo } from "@/app/types";
+import { deleteTodo } from "@/app/actions";
+import { useRouter } from "next/navigation";
 
-export function DeleteDialog({ _id, name }: any) {
+export function DeleteDialog({ item }: { item: Todo }) {
+  const router = useRouter();
+
   const { toast } = useToast();
 
-  const deleteTodo = () => {
-    axios.delete(`/api/todos/${_id}`);
+  const handleDeleteTodo = async () => {
+    await deleteTodo(item);
+
     toast({
-      title: "todo has been deleted",
+      title: "Todo deleted Sucesufly",
     });
+
+    router.refresh();
   };
 
   return (
@@ -32,8 +41,8 @@ export function DeleteDialog({ _id, name }: any) {
           <DialogTitle>Delete Todo</DialogTitle>
           <DialogDescription>
             Are you sure to want delete the{" "}
-            <span className="font-bold uppercase text-black">{name}</span> Todo
-            ?
+            <span className="font-bold uppercase text-black">{item.title}</span>
+            Todo ?
           </DialogDescription>
         </DialogHeader>
 
@@ -43,7 +52,7 @@ export function DeleteDialog({ _id, name }: any) {
           </DialogClose>
 
           <DialogClose asChild>
-            <Button onClick={deleteTodo} variant={"destructive"}>
+            <Button onClick={handleDeleteTodo} variant={"destructive"}>
               Delete
             </Button>
           </DialogClose>

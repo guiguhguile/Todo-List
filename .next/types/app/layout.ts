@@ -1,4 +1,4 @@
-// File: C:\Users\guilh\OneDrive\Documentos\javascript\React\Projetos\todo-list\todo-list\src\app\layout.tsx
+// File: /home/guiguhguile/Documents/javascript/React/Projects/todo-list/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,4 +1,3 @@
 export { Heading } from "./heading";
-export { Wrapper } from "./wrapper";
-export { Todo } from "./todo";
-export { EditForm } from "./editForm";
+export { Item } from "./item";
+export { UpsertForm } from "./upsert-form";

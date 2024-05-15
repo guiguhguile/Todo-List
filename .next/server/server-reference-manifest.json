@@ -1,5 +1,46 @@
 {
-  "node": {},
+  "node": {
+    "3e065efb4075cd824584ab9809b9a7e60520d55e": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fguiguhguile%2FDocuments%2Fjavascript%2FReact%2FProjects%2Ftodo-list%2Fsrc%2Fapp%2Factions.ts%22%2C%5B%22createTodo%22%2C%22deleteTodo%22%2C%22getTodos%22%2C%22updateTodo%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "990ea9a3476d1b2197dc2631bbce5868a66b533d": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fguiguhguile%2FDocuments%2Fjavascript%2FReact%2FProjects%2Ftodo-list%2Fsrc%2Fapp%2Factions.ts%22%2C%5B%22createTodo%22%2C%22deleteTodo%22%2C%22getTodos%22%2C%22updateTodo%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "0439c8c2006c3bf3f1199329cee1e266ceba3a24": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fguiguhguile%2FDocuments%2Fjavascript%2FReact%2FProjects%2Ftodo-list%2Fsrc%2Fapp%2Factions.ts%22%2C%5B%22createTodo%22%2C%22deleteTodo%22%2C%22getTodos%22%2C%22updateTodo%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "bb2273bad2a414abc61ac7ac4eea4fd8df0bed78": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fguiguhguile%2FDocuments%2Fjavascript%2FReact%2FProjects%2Ftodo-list%2Fsrc%2Fapp%2Factions.ts%22%2C%5B%22createTodo%22%2C%22deleteTodo%22%2C%22getTodos%22%2C%22updateTodo%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "615bd3db96e07ac969ff986651d99e69afe6f2ea": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fguiguhguile%2FDocuments%2Fjavascript%2FReact%2FProjects%2Ftodo-list%2Fsrc%2Fapp%2Factions.ts%22%2C%5B%22createTodo%22%2C%22deleteTodo%22%2C%22getTodos%22%2C%22updateTodo%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "gFSwFopEYb2efCC6Pb7tGi/liVxjP+U22I3AavKwC8A="
+  "encryptionKey": "yTRAkl+hMWbB/Y8A0m6Tt1ZhFpKuYaSMtEdgcXaNDbE="
 }
